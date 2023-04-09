@@ -15,5 +15,11 @@ aws cloudformation deploy \
   --template-file main.yml \
   --no-fail-on-empty-changeset \
   --capabilities CAPABILITY_NAMED_IAM \
-  --parameter-overrides \ 
-    EC2InstanceType=$EC2_INSTANCE_TYPE
+  --parameter-overrides \
+    EC2InstanceType=$EC2_INSTANCE_TYPE \
+
+if [ $? -eq 0 ]; then
+  aws cloudformation list-exports \
+    --profile awsbootstrap \
+    --query "Exports[?Name=='InstanceDNS'].Value"
+fi
