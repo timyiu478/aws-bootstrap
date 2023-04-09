@@ -1,4 +1,4 @@
-{
+
     "name": "aws-bootstrap",
     "version": "1.0.0",
     "description": "",
@@ -12,3 +12,4 @@
         "pm2": "^4.2.0"
     }
 }
+
